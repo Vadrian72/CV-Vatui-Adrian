@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrian Vatui - Systems Engineer & QA Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #0c0c0c 100%);
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 2rem;
+            color: #b0b0b0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #00d4ff;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #c0c0c0;
+        }
+
+        .highlight {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+        }
+
+        .skill-category h3 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.3rem 0;
+            color: #b0b0b0;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .skill-category li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+            position: relative;
+            width: 45%;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: #00d4ff;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: -60px;
+        }
+
+        .job-title {
+            color: #00d4ff;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .duration {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .job-description {
+            color: #c0c0c0;
+            line-height: 1.6;
+        }
+
+        .view-details {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 8px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 1px solid #00d4ff;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .view-details:hover {
+            background: #00d4ff;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+        }
+
+        .contact-item a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            color: #33e0ff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-content::before {
+                left: -60px !important;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Adrian Vatui</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Adrian Vatui</h1>
+                <p class="subtitle">Systems Engineer & QA Professional</p>
+                <p style="max-width: 600px; margin: 0 auto 2rem; color: #b0b0b0;">
+                    <span class="highlight">12+ years</span> of experience in Quality Assurance and Systems Engineering, 
+                    specializing in <span class="highlight">Linux/AIX administration</span>, <span class="highlight">automation</span>, and <span class="highlight">technical testing</span>.
+                </p>
+                <a href="#contact" class="cta-button">Get In Touch</a>
+            </div>
+        </section>
+
+        <section id="about" class="container fade-in">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a dedicated <span class="highlight">Systems Engineer</span> and <span class="highlight">QA professional</span> with over <span class="highlight">12 years</span> of experience 
+                        in the tech industry. Starting as a <span class="highlight">QA tester</span>, I've evolved into handling complex 
+                        <span class="highlight">system administration</span> tasks while maintaining my expertise in <span class="highlight">quality assurance</span>.
+                    </p>
+                    <p>
+                        My career spans <span class="highlight">6 years in QA</span> and <span class="highlight">6 years in Systems Engineering</span>. 
+                        Currently working at <span class="highlight">Metro Systems</span>, I provide daily support for <span class="highlight">AIX and Linux servers</span>, 
+                        handle <span class="highlight">incident management</span>, and work on <span class="highlight">automation projects</span>. I'm passionate about 
+                        learning new technologies, particularly <span class="highlight">automation with Python and Java</span>.
+                    </p>
+                    <p>
+                        I'm always looking for opportunities to grow while contributing value through my 
+                        <span class="highlight">technical skills</span> and <span class="highlight">problem-solving abilities</span>.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3>Systems Administration</h3>
+                    <ul>
+                        <li>Linux & AIX Server Management</li>
+                        <li>Shell Scripting (KornShell, Bash)</li>
+                        <li>Oracle Cloud Infrastructure (OCI)</li>
+                        <li>Server Monitoring & Support</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Operations & Automation</h3>
+                    <ul>
+                        <li>Control-M & Crontab Job Scheduling</li>
+                        <li>Incident Response & Log Analysis</li>
+                        <li>Patch/Module Installation</li>
+                        <li>Process Automation</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Monitoring & Databases</h3>
+                    <ul>
+                        <li>CheckMK, Grafana, Opsgenie</li>
+                        <li>SQL Developer & Query Analysis</li>
+                        <li>PL/SQL Troubleshooting</li>
+                        <li>Database Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Quality Assurance</h3>
+                    <ul>
+                        <li>Manual & Automated Testing</li>
+                        <li>Test Planning & Case Development</li>
+                        <li>Bug Tracking (JIRA, DevTest)</li>
+                        <li>Web & Mobile Platform Testing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title fade-in">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-content">
+                            <div class="job-title">Systems Engineer</div>
+                            <div class="company">Metro Systems</div>
+                            <div class="duration">Jan 2019 – Apr 2025</div>
+                            <div class="job-description">
+                                Provided comprehensive support for <span class="highlight">AIX and Linux servers</span>, managed scheduled tasks via <span class="highlight">Control-M and crontab</span>, 
+                                handled <span class="highlight">incident management</span> using CheckMK and Opsgenie, and supported <span class="highlight">Oracle Cloud Infrastructure</span> migration. 
+                                Improved internal <span class="highlight">automation scripts</span> and collaborated with DevOps teams on database troubleshooting.
+                            </div>
+                            <a href="javascript:void(0)" class="view-details" onclick="openJobDetails('systems-engineer')">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-content">
+                            <div class="job-title">QA Lead</div>
+                            <div class="company">Amber Studio</div>
+                            <div class="duration">May 2018 – Jan 2019</div>
+                            <div class="job-description">
+                                Coordinated <span class="highlight">testing efforts</span> for medium-to-large teams, defined <span class="highlight">test strategies and plans</span>, 
+                                managed resources and timelines, participated in <span class="highlight">client meetings</span>, and led team development 
+                                through feedback sessions and <span class="highlight">hiring processes</span>.
+                            </div>
+                            <a href="javascript:void(0)" class="view-details" onclick="openJobDetails('qa-lead')">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-content">
+                            <div class="job-title">Sr. QA Tester</div>
+                            <div class="company">Amber Studio</div>
+                            <div class="duration">Aug 2016 – May 2018</div>
+                            <div class="job-description">
+                                Performed <span class="highlight">functional and exploratory testing</span> on mobile and PC platforms, maintained <span class="highlight">test cases</span>, 
+                                tracked bugs using <span class="highlight">JIRA and DevTest</span>, communicated with development teams, and mentored <span class="highlight">junior testers</span> 
+                                while aligning test plans with project milestones.
+                            </div>
+                            <a href="javascript:void(0)" class="view-details" onclick="openJobDetails('sr-qa-tester')">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-content">
+                            <div class="job-title">Tester | Sr. QA Tester</div>
+                            <div class="company">Electronic Arts</div>
+                            <div class="duration">Jun 2013 – Aug 2016</div>
+                            <div class="job-description">
+                                Executed <span class="highlight">functional testing</span> and edge case scenarios on <span class="highlight">mobile games and applications</span>, 
+                                performed comprehensive <span class="highlight">device testing</span> including boot checks, Wi-Fi testing, and battery usage analysis. 
+                                Created detailed <span class="highlight">bug reports</span> and collaborated with developers to improve testing cycles.
+                            </div>
+                            <a href="javascript:void(0)" class="view-details" onclick="openJobDetails('ea-tester')">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container fade-in">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <p style="font-size: 1.1rem; color: #c0c0c0; margin-bottom: 2rem;">
+                    I'm always open to discussing new opportunities, collaborating on interesting projects, 
+                    or simply connecting with fellow professionals in the tech industry.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">Email</h3>
+                        <a href="mailto:adrianvatui@gmail.com">adrianvatui@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">Phone</h3>
+                        <a href="tel:+40761653315">+40 761 653 315</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/adrian-vatui-53571b121/" target="_blank">Connect with me</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">Location</h3>
+                        <span style="color: #c0c0c0;">Bucharest, Romania</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Job details data
+        const jobDetails = {
+            'systems-engineer': {
+                title: 'Systems Engineer',
+                company: 'Metro Systems',
+                duration: 'Jan 2019 – Apr 2025',
+                location: 'Bucharest, Romania',
+                description: 'As a Systems Engineer at Metro Systems, I managed critical infrastructure supporting enterprise operations across AIX and Linux environments.',
+                responsibilities: [
+                    'Provided daily support for AIX and Linux servers, ensuring 99.9% uptime for critical business applications',
+                    'Managed scheduled tasks via Control-M and crontab, optimizing job execution and reducing processing time by 30%',
+                    'Monitored and responded to incident alerts from CheckMK and Opsgenie with average response time under 5 minutes',
+                    'Investigated root causes using SQL Developer and job logs, resolving 95% of incidents without escalation',
+                    'Handled end-to-end incident management: re-running failed jobs, adjusting shell scripts, and correcting data inconsistencies',
+                    'Improved and maintained KornShell (KSH) scripts, preventing edge case failures and increasing reliability',
+                    'Supported migration of 50+ servers and databases to Oracle Cloud Infrastructure (OCI)',
+                    'Adjusted scripts and configurations for cloud environment, ensuring seamless transition',
+                    'Processed technical requests including SSH key management, firewall rule updates, and patch installations',
+                    'Automated system availability reporting by integrating KPI data into Grafana dashboards',
+                    'Collaborated with DevOps team on PL/SQL troubleshooting and database updates',
+                    'Mentored new team members through knowledge transfer sessions and process documentation',
+                    'Maintained comprehensive documentation for all systems and procedures',
+                    'Participated in on-call rotation for 24/7 system support',
+                    'Implemented monitoring improvements that reduced false alerts by 40%'
+                ]
+            },
+            'qa-lead': {
+                title: 'QA Lead',
+                company: 'Amber Studio',
+                duration: 'May 2018 – Jan 2019',
+                location: 'Bucharest, Romania',
+                description: 'Led quality assurance efforts for multiple client projects, managing teams of 5-12 QA professionals and ensuring delivery of high-quality software solutions.',
+                responsibilities: [
+                    'Coordinated testing efforts for medium-to-large teams (5-12 QA professionals)',
+                    'Defined comprehensive test strategies and test plans aligned with client expectations and project requirements',
+                    'Planned resource allocation and daily test execution schedules to meet delivery timelines',
+                    'Participated in client meetings to present testing progress, identify risks, and propose action plans',
+                    'Reviewed and approved test cases created by team members, ensuring comprehensive coverage',
+                    'Tracked bugs in JIRA and provided detailed sign-off documentation for project milestones',
+                    'Delivered daily status reports with risk assessments and clear recommendations to stakeholders',
+                    'Conducted 1-on-1 feedback sessions with team members to boost morale and performance',
+                    'Led hiring initiatives: conducted technical interviews and supported onboarding of junior and senior testers',
+                    'Organized internal QA sync meetings to align testing goals with development milestones',
+                    'Established testing best practices and quality standards across projects',
+                    'Managed test environment setup and maintenance for multiple concurrent projects',
+                    'Coordinated with development teams to ensure timely bug fixes and retesting',
+                    'Created and maintained testing documentation and process improvement initiatives',
+                    'Mentored junior QA testers in test case design and execution methodologies'
+                ]
+            },
+            'sr-qa-tester': {
+                title: 'Sr. QA Tester',
+                company: 'Amber Studio',
+                duration: 'Aug 2016 – May 2018',
+                location: 'Bucharest, Romania',
+                description: 'Senior quality assurance role focusing on comprehensive testing of mobile and PC applications, with responsibilities including test planning, execution, and team coordination.',
+                responsibilities: [
+                    'Performed functional and exploratory testing on mobile (iOS/Android) and PC platforms',
+                    'Wrote and maintained detailed test cases with clear steps and expected results',
+                    'Estimated testing efforts for project planning and resource allocation',
+                    'Defined test coverage ensuring all critical user paths were validated',
+                    'Reported bugs using JIRA and DevTest with detailed reproduction steps and screenshots',
+                    'Tracked test cycles and verified bug fixes through comprehensive regression testing',
+                    'Communicated directly with developers to clarify issues and expedite resolution',
+                    'Delegated tasks to junior testers and provided guidance on testing approaches',
+                    'Aligned test plans with project milestones and delivery schedules',
+                    'Created daily test reports highlighting key issues, risks, and testing gaps',
+                    'Participated in sign-off decisions ensuring all critical features met quality standards',
+                    'Conducted compatibility testing across multiple devices and operating systems',
+                    'Performed usability testing to ensure optimal user experience',
+                    'Executed performance testing to identify bottlenecks and optimization opportunities',
+                    'Maintained test data and environments for consistent testing conditions',
+                    'Collaborated with product owners to understand requirements and acceptance criteria'
+                ]
+            },
+            'ea-tester': {
+                title: 'Tester | Sr. QA Tester',
+                company: 'Electronic Arts',
+                duration: 'Jun 2013 – Aug 2016',
+                location: 'Bucharest, Romania',
+                description: 'Quality assurance role at Electronic Arts focusing on mobile games and applications, with progression from Tester to Senior QA Tester over 3+ years.',
+                responsibilities: [
+                    'Executed functional testing and edge case scenarios on mobile games and applications',
+                    'Performed comprehensive device testing across 20+ mobile devices and platforms',
+                    'Conducted boot checks, installation testing, and app lifecycle validation',
+                    'Tested Wi-Fi connectivity, offline functionality, and network error handling',
+                    'Analyzed battery usage and performance impact on various mobile devices',
+                    'Executed regression testing for new releases and updates',
+                    'Created detailed daily bug reports and testing summaries for development teams',
+                    'Held regular sync meetings with developers to discuss blockers and improve test cycles',
+                    'Created comprehensive test case documentation for mobile and PC projects',
+                    'Developed sign-off materials and testing checklists for release approval',
+                    'Assisted in time estimation for testing phases and coverage planning',
+                    'Delegated test tasks to peers and junior team members for efficient workload management',
+                    'Tested in-app purchases, monetization features, and payment integration',
+                    'Validated game mechanics, user interface elements, and gameplay features',
+                    'Performed localization testing for multiple languages and regions',
+                    'Conducted performance testing on low-end and high-end mobile devices',
+                    'Tested social features, leaderboards, and multiplayer functionality',
+                    'Validated analytics integration and user tracking features'
+                ]
+            }
+        };
+
+        function openJobDetails(jobId) {
+            const job = jobDetails[jobId];
+            if (!job) return;
+
+            // Try to open new window, with fallback for popup blockers
+            let newWindow;
+            try {
+                newWindow = window.open('', '_blank', 'width=900,height=700,scrollbars=yes,resizable=yes');
+                if (!newWindow) {
+                    // Fallback: create modal if popup is blocked
+                    showJobModal(job);
+                    return;
+                }
+            } catch (e) {
+                // Fallback: create modal if popup is blocked
+                showJobModal(job);
+                return;
+            }
+
+            const html = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${job.title} - ${job.company}</title>
+                    <style>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+                        body {
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+                            color: #e0e0e0;
+                            line-height: 1.6;
+                            padding: 2rem;
+                        }
+                        .container {
+                            max-width: 800px;
+                            margin: 0 auto;
+                            background: rgba(255, 255, 255, 0.05);
+                            padding: 3rem;
+                            border-radius: 15px;
+                            border: 1px solid #333;
+                        }
+                        .header {
+                            text-align: center;
+                            margin-bottom: 3rem;
+                            padding-bottom: 2rem;
+                            border-bottom: 2px solid #00d4ff;
+                        }
+                        .job-title {
+                            font-size: 2.5rem;
+                            color: #00d4ff;
+                            margin-bottom: 0.5rem;
+                        }
+                        .company {
+                            font-size: 1.5rem;
+                            color: #fff;
+                            margin-bottom: 0.5rem;
+                        }
+                        .duration {
+                            color: #888;
+                            font-size: 1.1rem;
+                        }
+                        .location {
+                            color: #00d4ff;
+                            font-size: 1rem;
+                            margin-top: 0.5rem;
+                        }
+                        .description {
+                            font-size: 1.2rem;
+                            color: #c0c0c0;
+                            margin-bottom: 2rem;
+                            text-align: center;
+                            font-style: italic;
+                        }
+                        .responsibilities {
+                            margin-top: 2rem;
+                        }
+                        .responsibilities h3 {
+                            color: #00d4ff;
+                            font-size: 1.5rem;
+                            margin-bottom: 1.5rem;
+                            text-align: center;
+                        }
+                        .responsibilities ul {
+                            list-style: none;
+                            padding: 0;
+                        }
+                        .responsibilities li {
+                            background: rgba(255, 255, 255, 0.03);
+                            margin-bottom: 0.8rem;
+                            padding: 1rem 1.5rem;
+                            border-radius: 8px;
+                            border-left: 3px solid #00d4ff;
+                            position: relative;
+                            padding-left: 2.5rem;
+                        }
+                        .responsibilities li::before {
+                            content: '▸';
+                            position: absolute;
+                            left: 1rem;
+                            color: #00d4ff;
+                            font-weight: bold;
+                            font-size: 1.2rem;
+                        }
+                        .close-btn {
+                            position: fixed;
+                            top: 20px;
+                            right: 20px;
+                            background: #00d4ff;
+                            color: #000;
+                            border: none;
+                            padding: 10px 20px;
+                            border-radius: 25px;
+                            cursor: pointer;
+                            font-weight: bold;
+                            transition: all 0.3s ease;
+                        }
+                        .close-btn:hover {
+                            background: #33e0ff;
+                            transform: scale(1.05);
+                        }
+                        @media (max-width: 768px) {
+                            body { padding: 1rem; }
+                            .container { padding: 2rem; }
+                            .job-title { font-size: 2rem; }
+                            .company { font-size: 1.3rem; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <button class="close-btn" onclick="window.close()">✕ Close</button>
+                    <div class="container">
+                        <div class="header">
+                            <h1 class="job-title">${job.title}</h1>
+                            <h2 class="company">${job.company}</h2>
+                            <p class="duration">${job.duration}</p>
+                            <p class="location">📍 ${job.location}</p>
+                        </div>
+                        <p class="description">${job.description}</p>
+                        <div class="responsibilities">
+                            <h3>Key Responsibilities & Achievements</h3>
+                            <ul>
+                                ${job.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            try {
+                newWindow.document.write(html);
+                newWindow.document.close();
+            } catch (e) {
+                console.error('Failed to write to new window:', e);
+                newWindow.close();
+                showJobModal(job);
+            }
+        }
+
+        // Fallback modal function for when popups are blocked
+        function showJobModal(job) {
+            // Remove existing modal if any
+            const existingModal = document.getElementById('job-modal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            const modal = document.createElement('div');
+            modal.id = 'job-modal';
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+                overflow-y: auto;
+            `;
+
+            modal.innerHTML = `
+                <div style="
+                    max-width: 800px;
+                    width: 100%;
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+                    border: 1px solid #333;
+                    border-radius: 15px;
+                    padding: 3rem;
+                    position: relative;
+                ">
+                    <button onclick="document.getElementById('job-modal').remove()" style="
+                        position: absolute;
+                        top: 20px;
+                        right: 20px;
+                        background: #00d4ff;
+                        color: #000;
+                        border: none;
+                        padding: 10px 15px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    ">✕</button>
+                    
+                    <div style="text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid #00d4ff;">
+                        <h1 style="font-size: 2.5rem; color: #00d4ff; margin-bottom: 0.5rem;">${job.title}</h1>
+                        <h2 style="font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem;">${job.company}</h2>
+                        <p style="color: #888; font-size: 1.1rem;">${job.duration}</p>
+                        <p style="color: #00d4ff; font-size: 1rem; margin-top: 0.5rem;">📍 ${job.location}</p>
+                    </div>
+                    
+                    <p style="font-size: 1.2rem; color: #c0c0c0; margin-bottom: 2rem; text-align: center; font-style: italic;">
+                        ${job.description}
+                    </p>
+                    
+                    <div>
+                        <h3 style="color: #00d4ff; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">
+                            Key Responsibilities & Achievements
+                        </h3>
+                        <ul style="list-style: none; padding: 0;">
+                            ${job.responsibilities.map(resp => `
+                                <li style="
+                                    background: rgba(255, 255, 255, 0.03);
+                                    margin-bottom: 0.8rem;
+                                    padding: 1rem 1.5rem 1rem 2.5rem;
+                                    border-radius: 8px;
+                                    border-left: 3px solid #00d4ff;
+                                    position: relative;
+                                    color: #e0e0e0;
+                                    line-height: 1.6;
+                                ">
+                                    <span style="position: absolute; left: 1rem; color: #00d4ff; font-weight: bold; font-size: 1.2rem;">▸</span>
+                                    ${resp}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Close modal when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerOffset = 80;
+                const elementPosition = target.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
