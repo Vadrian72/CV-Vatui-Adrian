@@ -39,7 +39,7 @@
 
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
@@ -113,6 +113,11 @@
             color: #b0b0b0;
         }
 
+        .highlight {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
         .cta-button {
             display: inline-block;
             padding: 12px 30px;
@@ -164,11 +169,6 @@
         .about-text {
             font-size: 1.1rem;
             color: #c0c0c0;
-        }
-
-        .highlight {
-            color: #00d4ff;
-            font-weight: 600;
         }
 
         .about-text p {
@@ -330,26 +330,24 @@
         /* Contact Section */
         .contact-content {
             text-align: center;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .contact-item {
             background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
+            padding: 1.2rem;
             border-radius: 10px;
             border: 1px solid #333;
             transition: transform 0.3s ease, border-color 0.3s ease;
             text-align: center;
-            min-width: 200px;
         }
 
         .contact-item:hover {
@@ -367,17 +365,102 @@
             color: #33e0ff;
         }
 
+        /* Job Details Styles */
+        .job-details-page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .job-details-header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .back-btn {
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .job-details-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .job-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .job-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #00d4ff;
+        }
+
+        .job-details-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #00d4ff, #33e0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .responsibilities-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #00d4ff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .responsibilities-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .responsibility-number {
+            background: #00d4ff;
+            color: #000;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
             .timeline::before {
                 left: 20px;
             }
@@ -392,12 +475,20 @@
             }
 
             .contact-info {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .contact-item {
+                padding: 1rem;
             }
 
             .skills-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .job-card {
+                padding: 2rem;
             }
         }
 
@@ -431,184 +522,218 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="#home" class="logo">Adrian Vatui</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Main Portfolio Page -->
+    <div id="main-page">
+        <header>
+            <nav class="container">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Adrian Vatui</h1>
-                <p class="subtitle">Systems Engineer & QA Professional</p>
-                <p style="max-width: 600px; margin: 0 auto 2rem; color: #b0b0b0;">
-                    <span class="highlight">12+ years</span> of experience in Quality Assurance and Systems Engineering, 
-                    specializing in <span class="highlight">Linux/AIX administration</span>, <span class="highlight">automation</span>, and <span class="highlight">technical testing</span>.
-                </p>
-                <a href="#contact" class="cta-button">Get In Touch</a>
-            </div>
-        </section>
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1>Adrian Vatui</h1>
+                    <p class="subtitle">Systems Engineer & QA Professional</p>
+                    <p style="max-width: 600px; margin: 0 auto 2rem; color: #b0b0b0;">
+                        <span class="highlight">12+ years</span> of experience in Quality Assurance and Systems Engineering, 
+                        specializing in <span class="highlight">Linux/AIX administration</span>, <span class="highlight">automation</span>, and <span class="highlight">technical testing</span>.
+                    </p>
+                    <a href="#contact" class="cta-button">Get In Touch</a>
+                </div>
+            </section>
 
-        <section id="about" class="container fade-in">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a dedicated <span class="highlight">Systems Engineer</span> and <span class="highlight">QA professional</span> with over <span class="highlight">12 years</span> of experience 
-                        in the tech industry. Starting as a <span class="highlight">QA tester</span>, I've evolved into handling complex 
-                        <span class="highlight">system administration</span> tasks while maintaining my expertise in <span class="highlight">quality assurance</span>.
-                    </p>
-                    <p>
-                        My career spans <span class="highlight">6 years in QA</span> and <span class="highlight">6 years in Systems Engineering</span>. 
-                        Currently working at <span class="highlight">Metro Systems</span>, I provide daily support for <span class="highlight">AIX and Linux servers</span>, 
-                        handle <span class="highlight">incident management</span>, and work on <span class="highlight">automation projects</span>. I'm passionate about 
-                        learning new technologies, particularly <span class="highlight">automation with Python and Java</span>.
-                    </p>
-                    <p>
-                        I'm always looking for opportunities to grow while contributing value through my 
-                        <span class="highlight">technical skills</span> and <span class="highlight">problem-solving abilities</span>.
-                    </p>
+            <section id="about" class="container fade-in">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            I'm a dedicated <span class="highlight">Systems Engineer</span> and <span class="highlight">QA professional</span> with over <span class="highlight">12 years</span> of experience 
+                            in the tech industry. Starting as a <span class="highlight">QA tester</span>, I've evolved into handling complex 
+                            <span class="highlight">system administration</span> tasks while maintaining my expertise in <span class="highlight">quality assurance</span>.
+                        </p>
+                        <p>
+                            My career spans <span class="highlight">6 years in QA</span> and <span class="highlight">6 years in Systems Engineering</span>. 
+                            Most recently at <span class="highlight">Metro Systems</span>, I provided daily support for <span class="highlight">AIX and Linux servers</span>, 
+                            handled <span class="highlight">incident management</span>, and worked on <span class="highlight">automation projects</span>. I'm passionate about 
+                            learning new technologies, particularly <span class="highlight">automation and development</span>.
+                        </p>
+                        <p>
+                            I'm always looking for opportunities to grow while contributing value through my 
+                            <span class="highlight">technical skills</span> and <span class="highlight">problem-solving abilities</span>.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-category fade-in">
-                    <h3>Systems Administration</h3>
-                    <ul>
-                        <li>Linux & AIX Server Management</li>
-                        <li>Shell Scripting (KornShell, Bash)</li>
-                        <li>Oracle Cloud Infrastructure (OCI)</li>
-                        <li>Server Monitoring & Support</li>
-                    </ul>
+                
+                <div class="skills-grid">
+                    <div class="skill-category fade-in">
+                        <h3>Systems Administration</h3>
+                        <ul>
+                            <li>Linux & AIX Server Management</li>
+                            <li>Shell Scripting (KornShell, Bash)</li>
+                            <li>Oracle Cloud Infrastructure (OCI)</li>
+                            <li>Server Monitoring & Support</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3>Operations & Automation</h3>
+                        <ul>
+                            <li>Control-M & Crontab Job Scheduling</li>
+                            <li>Incident Response & Log Analysis</li>
+                            <li>Patch/Module Installation</li>
+                            <li>Process Automation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3>Monitoring & Databases</h3>
+                        <ul>
+                            <li>CheckMK, Grafana, Opsgenie</li>
+                            <li>SQL Developer & Query Analysis</li>
+                            <li>PL/SQL Troubleshooting</li>
+                            <li>Database Management</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3>Quality Assurance</h3>
+                        <ul>
+                            <li>Manual & Automated Testing</li>
+                            <li>Test Planning & Case Development</li>
+                            <li>Bug Tracking (JIRA, DevTest)</li>
+                            <li>Web & Mobile Platform Testing</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="skill-category fade-in">
-                    <h3>Operations & Automation</h3>
-                    <ul>
-                        <li>Control-M & Crontab Job Scheduling</li>
-                        <li>Incident Response & Log Analysis</li>
-                        <li>Patch/Module Installation</li>
-                        <li>Process Automation</li>
-                    </ul>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3>Monitoring & Databases</h3>
-                    <ul>
-                        <li>CheckMK, Grafana, Opsgenie</li>
-                        <li>SQL Developer & Query Analysis</li>
-                        <li>PL/SQL Troubleshooting</li>
-                        <li>Database Management</li>
-                    </ul>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3>Quality Assurance</h3>
-                    <ul>
-                        <li>Manual & Automated Testing</li>
-                        <li>Test Planning & Case Development</li>
-                        <li>Bug Tracking (JIRA, DevTest)</li>
-                        <li>Web & Mobile Platform Testing</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="experience" class="experience">
+            <section id="experience" class="experience">
+                <div class="container">
+                    <h2 class="section-title fade-in">Experience</h2>
+                    <div class="timeline">
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-content">
+                                <div class="job-title">Systems Engineer</div>
+                                <div class="company">Metro Systems</div>
+                                <div class="duration">Jan 2019 – Apr 2025</div>
+                                <div class="job-description">
+                                    Provided comprehensive support for <span class="highlight">AIX and Linux servers</span>, managed scheduled tasks via <span class="highlight">Control-M and crontab</span>, 
+                                    handled <span class="highlight">incident management</span> using CheckMK and Opsgenie, and supported <span class="highlight">Oracle Cloud Infrastructure</span> migration. 
+                                    Improved internal <span class="highlight">automation scripts</span> and collaborated with DevOps teams on database troubleshooting.
+                                </div>
+                                <a href="javascript:void(0)" class="view-details" onclick="showJobDetails('systems-engineer')">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-content">
+                                <div class="job-title">QA Lead</div>
+                                <div class="company">Amber Studio</div>
+                                <div class="duration">May 2018 – Jan 2019</div>
+                                <div class="job-description">
+                                    Coordinated <span class="highlight">testing efforts</span> for medium-to-large teams, defined <span class="highlight">test strategies and plans</span>, 
+                                    managed resources and timelines, participated in <span class="highlight">client meetings</span>, and led team development 
+                                    through feedback sessions and <span class="highlight">hiring processes</span>.
+                                </div>
+                                <a href="javascript:void(0)" class="view-details" onclick="showJobDetails('qa-lead')">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-content">
+                                <div class="job-title">Sr. QA Tester</div>
+                                <div class="company">Amber Studio</div>
+                                <div class="duration">Aug 2016 – May 2018</div>
+                                <div class="job-description">
+                                    Performed <span class="highlight">functional and exploratory testing</span> on mobile and PC platforms, maintained <span class="highlight">test cases</span>, 
+                                    tracked bugs using <span class="highlight">JIRA and DevTest</span>, communicated with development teams, and mentored <span class="highlight">junior testers</span> 
+                                    while aligning test plans with project milestones.
+                                </div>
+                                <a href="javascript:void(0)" class="view-details" onclick="showJobDetails('sr-qa-tester')">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-content">
+                                <div class="job-title">Tester | Sr. QA Tester</div>
+                                <div class="company">Electronic Arts</div>
+                                <div class="duration">Jun 2013 – Aug 2016</div>
+                                <div class="job-description">
+                                    Executed <span class="highlight">functional testing</span> and edge case scenarios on <span class="highlight">mobile games and applications</span>, 
+                                    performed comprehensive <span class="highlight">device testing</span> including boot checks, Wi-Fi testing, and battery usage analysis. 
+                                    Created detailed <span class="highlight">bug reports</span> and collaborated with developers to improve testing cycles.
+                                </div>
+                                <a href="javascript:void(0)" class="view-details" onclick="showJobDetails('ea-tester')">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="container fade-in">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="contact-content">
+                    <p style="font-size: 1.1rem; color: #c0c0c0; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                        I'm always open to discussing new opportunities, collaborating on interesting projects, 
+                        or simply connecting with fellow professionals in the tech industry.
+                    </p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3 style="color: #00d4ff; margin-bottom: 0.8rem; font-size: 1.1rem;">Email</h3>
+                            <a href="mailto:adrianvatui@gmail.com">adrianvatui@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <h3 style="color: #00d4ff; margin-bottom: 0.8rem; font-size: 1.1rem;">Phone</h3>
+                            <a href="tel:+40761653315">+40 761 653 315</a>
+                        </div>
+                        <div class="contact-item">
+                            <h3 style="color: #00d4ff; margin-bottom: 0.8rem; font-size: 1.1rem;">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/adrian-vatui-53571b121/" target="_blank">Connect with me</a>
+                        </div>
+                        <div class="contact-item">
+                            <h3 style="color: #00d4ff; margin-bottom: 0.8rem; font-size: 1.1rem;">Location</h3>
+                            <span style="color: #c0c0c0;">Bucharest, Romania</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Job Details Page -->
+    <div id="job-details-page" class="job-details-page">
+        <div class="job-details-header">
             <div class="container">
-                <h2 class="section-title fade-in">Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-content">
-                            <div class="job-title">Systems Engineer</div>
-                            <div class="company">Metro Systems</div>
-                            <div class="duration">Jan 2019 – Apr 2025</div>
-                            <div class="job-description">
-                                Provided comprehensive support for <span class="highlight">AIX and Linux servers</span>, managed scheduled tasks via <span class="highlight">Control-M and crontab</span>, 
-                                handled <span class="highlight">incident management</span> using CheckMK and Opsgenie, and supported <span class="highlight">Oracle Cloud Infrastructure</span> migration. 
-                                Improved internal <span class="highlight">automation scripts</span> and collaborated with DevOps teams on database troubleshooting.
-                            </div>
-                            <a href="javascript:void(0)" class="view-details" onclick="openJobDetails('systems-engineer')">View Details</a>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-content">
-                            <div class="job-title">QA Lead</div>
-                            <div class="company">Amber Studio</div>
-                            <div class="duration">May 2018 – Jan 2019</div>
-                            <div class="job-description">
-                                Coordinated <span class="highlight">testing efforts</span> for medium-to-large teams, defined <span class="highlight">test strategies and plans</span>, 
-                                managed resources and timelines, participated in <span class="highlight">client meetings</span>, and led team development 
-                                through feedback sessions and <span class="highlight">hiring processes</span>.
-                            </div>
-                            <a href="javascript:void(0)" class="view-details" onclick="openJobDetails('qa-lead')">View Details</a>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-content">
-                            <div class="job-title">Sr. QA Tester</div>
-                            <div class="company">Amber Studio</div>
-                            <div class="duration">Aug 2016 – May 2018</div>
-                            <div class="job-description">
-                                Performed <span class="highlight">functional and exploratory testing</span> on mobile and PC platforms, maintained <span class="highlight">test cases</span>, 
-                                tracked bugs using <span class="highlight">JIRA and DevTest</span>, communicated with development teams, and mentored <span class="highlight">junior testers</span> 
-                                while aligning test plans with project milestones.
-                            </div>
-                            <a href="javascript:void(0)" class="view-details" onclick="openJobDetails('sr-qa-tester')">View Details</a>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-content">
-                            <div class="job-title">Tester | Sr. QA Tester</div>
-                            <div class="company">Electronic Arts</div>
-                            <div class="duration">Jun 2013 – Aug 2016</div>
-                            <div class="job-description">
-                                Executed <span class="highlight">functional testing</span> and edge case scenarios on <span class="highlight">mobile games and applications</span>, 
-                                performed comprehensive <span class="highlight">device testing</span> including boot checks, Wi-Fi testing, and battery usage analysis. 
-                                Created detailed <span class="highlight">bug reports</span> and collaborated with developers to improve testing cycles.
-                            </div>
-                            <a href="javascript:void(0)" class="view-details" onclick="openJobDetails('ea-tester')">View Details</a>
-                        </div>
-                    </div>
-                </div>
+                <button class="back-btn" onclick="goBackToPortfolio()">← Back</button>
             </div>
-        </section>
+        </div>
+        <div class="job-details-content">
+            <div class="job-card">
+                <div class="job-header">
+                    <h1 id="job-details-title" class="job-details-title"></h1>
+                    <h2 id="job-details-company" style="font-size: clamp(1.2rem, 2.5vw, 1.8rem); color: #fff; margin-bottom: 0.5rem;"></h2>
+                    <p id="job-details-duration" style="color: #888; font-size: 1.1rem; margin-bottom: 0.5rem;"></p>
+                    <p id="job-details-location" style="color: #00d4ff; font-size: 1rem;"></p>
+                </div>
+                
+                <div id="job-details-description" style="font-size: 1.2rem; color: #c0c0c0; margin-bottom: 3rem; text-align: center; font-style: italic; line-height: 1.7; padding: 1.5rem; background: rgba(0, 212, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 212, 255, 0.2);"></div>
+                
+                <div>
+                    <h3 style="color: #00d4ff; font-size: 1.8rem; margin-bottom: 2rem; text-align: center; position: relative;">
+                        Key Responsibilities & Achievements
+                    </h3>
+                    <div id="job-responsibilities"></div>
+                </div>
 
-        <section id="contact" class="container fade-in">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-content">
-                <p style="font-size: 1.1rem; color: #c0c0c0; margin-bottom: 2rem;">
-                    I'm always open to discussing new opportunities, collaborating on interesting projects, 
-                    or simply connecting with fellow professionals in the tech industry.
-                </p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">Email</h3>
-                        <a href="mailto:adrianvatui@gmail.com">adrianvatui@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">Phone</h3>
-                        <a href="tel:+40761653315">+40 761 653 315</a>
-                    </div>
-                    <div class="contact-item">
-                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">LinkedIn</h3>
-                        <a href="https://www.linkedin.com/in/adrian-vatui-53571b121/" target="_blank">Connect with me</a>
-                    </div>
-                    <div class="contact-item">
-                        <h3 style="color: #00d4ff; margin-bottom: 1rem;">Location</h3>
-                        <span style="color: #c0c0c0;">Bucharest, Romania</span>
-                    </div>
+                <div style="margin-top: 3rem; text-align: center; padding-top: 2rem; border-top: 1px solid #333;">
+                    <button class="back-btn" onclick="goBackToPortfolio()" style="padding: 15px 30px; font-size: 1.1rem;">← Back</button>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
     <script>
         // Job details data
@@ -715,272 +840,62 @@
             }
         };
 
-        function openJobDetails(jobId) {
+        // Function to show job details
+        function showJobDetails(jobId) {
             const job = jobDetails[jobId];
             if (!job) return;
 
-            // Try to open new window, with fallback for popup blockers
-            let newWindow;
-            try {
-                newWindow = window.open('', '_blank', 'width=900,height=700,scrollbars=yes,resizable=yes');
-                if (!newWindow) {
-                    // Fallback: create modal if popup is blocked
-                    showJobModal(job);
-                    return;
-                }
-            } catch (e) {
-                // Fallback: create modal if popup is blocked
-                showJobModal(job);
-                return;
-            }
+            // Hide main page and show job details
+            document.getElementById('main-page').style.display = 'none';
+            document.getElementById('job-details-page').style.display = 'block';
 
-            const html = `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>${job.title} - ${job.company}</title>
-                    <style>
-                        * {
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-                        }
-                        body {
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
-                            color: #e0e0e0;
-                            line-height: 1.6;
-                            padding: 2rem;
-                        }
-                        .container {
-                            max-width: 800px;
-                            margin: 0 auto;
-                            background: rgba(255, 255, 255, 0.05);
-                            padding: 3rem;
-                            border-radius: 15px;
-                            border: 1px solid #333;
-                        }
-                        .header {
-                            text-align: center;
-                            margin-bottom: 3rem;
-                            padding-bottom: 2rem;
-                            border-bottom: 2px solid #00d4ff;
-                        }
-                        .job-title {
-                            font-size: 2.5rem;
-                            color: #00d4ff;
-                            margin-bottom: 0.5rem;
-                        }
-                        .company {
-                            font-size: 1.5rem;
-                            color: #fff;
-                            margin-bottom: 0.5rem;
-                        }
-                        .duration {
-                            color: #888;
-                            font-size: 1.1rem;
-                        }
-                        .location {
-                            color: #00d4ff;
-                            font-size: 1rem;
-                            margin-top: 0.5rem;
-                        }
-                        .description {
-                            font-size: 1.2rem;
-                            color: #c0c0c0;
-                            margin-bottom: 2rem;
-                            text-align: center;
-                            font-style: italic;
-                        }
-                        .responsibilities {
-                            margin-top: 2rem;
-                        }
-                        .responsibilities h3 {
-                            color: #00d4ff;
-                            font-size: 1.5rem;
-                            margin-bottom: 1.5rem;
-                            text-align: center;
-                        }
-                        .responsibilities ul {
-                            list-style: none;
-                            padding: 0;
-                        }
-                        .responsibilities li {
-                            background: rgba(255, 255, 255, 0.03);
-                            margin-bottom: 0.8rem;
-                            padding: 1rem 1.5rem;
-                            border-radius: 8px;
-                            border-left: 3px solid #00d4ff;
-                            position: relative;
-                            padding-left: 2.5rem;
-                        }
-                        .responsibilities li::before {
-                            content: '▸';
-                            position: absolute;
-                            left: 1rem;
-                            color: #00d4ff;
-                            font-weight: bold;
-                            font-size: 1.2rem;
-                        }
-                        .close-btn {
-                            position: fixed;
-                            top: 20px;
-                            right: 20px;
-                            background: #00d4ff;
-                            color: #000;
-                            border: none;
-                            padding: 10px 20px;
-                            border-radius: 25px;
-                            cursor: pointer;
-                            font-weight: bold;
-                            transition: all 0.3s ease;
-                        }
-                        .close-btn:hover {
-                            background: #33e0ff;
-                            transform: scale(1.05);
-                        }
-                        @media (max-width: 768px) {
-                            body { padding: 1rem; }
-                            .container { padding: 2rem; }
-                            .job-title { font-size: 2rem; }
-                            .company { font-size: 1.3rem; }
-                        }
-                    </style>
-                </head>
-                <body>
-                    <button class="close-btn" onclick="window.close()">✕ Close</button>
-                    <div class="container">
-                        <div class="header">
-                            <h1 class="job-title">${job.title}</h1>
-                            <h2 class="company">${job.company}</h2>
-                            <p class="duration">${job.duration}</p>
-                            <p class="location">📍 ${job.location}</p>
-                        </div>
-                        <p class="description">${job.description}</p>
-                        <div class="responsibilities">
-                            <h3>Key Responsibilities & Achievements</h3>
-                            <ul>
-                                ${job.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
-                            </ul>
-                        </div>
-                    </div>
-                </body>
-                </html>
-            `;
+            // Populate job details
+            document.getElementById('job-details-title').textContent = job.title;
+            document.getElementById('job-details-company').textContent = job.company;
+            document.getElementById('job-details-duration').textContent = job.duration;
+            document.getElementById('job-details-location').textContent = '📍 ' + job.location;
+            document.getElementById('job-details-description').textContent = job.description;
+
+            // Populate responsibilities
+            const responsibilitiesContainer = document.getElementById('job-responsibilities');
+            responsibilitiesContainer.innerHTML = '';
             
-            try {
-                newWindow.document.write(html);
-                newWindow.document.close();
-            } catch (e) {
-                console.error('Failed to write to new window:', e);
-                newWindow.close();
-                showJobModal(job);
-            }
-        }
-
-        // Fallback modal function for when popups are blocked
-        function showJobModal(job) {
-            // Remove existing modal if any
-            const existingModal = document.getElementById('job-modal');
-            if (existingModal) {
-                existingModal.remove();
-            }
-
-            const modal = document.createElement('div');
-            modal.id = 'job-modal';
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                z-index: 10000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 2rem;
-                overflow-y: auto;
-            `;
-
-            modal.innerHTML = `
-                <div style="
-                    max-width: 800px;
-                    width: 100%;
-                    max-height: 90vh;
-                    overflow-y: auto;
-                    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
-                    border: 1px solid #333;
-                    border-radius: 15px;
-                    padding: 3rem;
-                    position: relative;
-                ">
-                    <button onclick="document.getElementById('job-modal').remove()" style="
-                        position: absolute;
-                        top: 20px;
-                        right: 20px;
-                        background: #00d4ff;
-                        color: #000;
-                        border: none;
-                        padding: 10px 15px;
-                        border-radius: 50%;
-                        cursor: pointer;
-                        font-weight: bold;
-                        font-size: 1.2rem;
-                        width: 40px;
-                        height: 40px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    ">✕</button>
-                    
-                    <div style="text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid #00d4ff;">
-                        <h1 style="font-size: 2.5rem; color: #00d4ff; margin-bottom: 0.5rem;">${job.title}</h1>
-                        <h2 style="font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem;">${job.company}</h2>
-                        <p style="color: #888; font-size: 1.1rem;">${job.duration}</p>
-                        <p style="color: #00d4ff; font-size: 1rem; margin-top: 0.5rem;">📍 ${job.location}</p>
-                    </div>
-                    
-                    <p style="font-size: 1.2rem; color: #c0c0c0; margin-bottom: 2rem; text-align: center; font-style: italic;">
-                        ${job.description}
-                    </p>
-                    
-                    <div>
-                        <h3 style="color: #00d4ff; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">
-                            Key Responsibilities & Achievements
-                        </h3>
-                        <ul style="list-style: none; padding: 0;">
-                            ${job.responsibilities.map(resp => `
-                                <li style="
-                                    background: rgba(255, 255, 255, 0.03);
-                                    margin-bottom: 0.8rem;
-                                    padding: 1rem 1.5rem 1rem 2.5rem;
-                                    border-radius: 8px;
-                                    border-left: 3px solid #00d4ff;
-                                    position: relative;
-                                    color: #e0e0e0;
-                                    line-height: 1.6;
-                                ">
-                                    <span style="position: absolute; left: 1rem; color: #00d4ff; font-weight: bold; font-size: 1.2rem;">▸</span>
-                                    ${resp}
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                </div>
-            `;
-
-            document.body.appendChild(modal);
-
-            // Close modal when clicking outside
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.remove();
-                }
+            job.responsibilities.forEach((resp, index) => {
+                const div = document.createElement('div');
+                div.className = 'responsibilities-item';
+                div.innerHTML = `
+                    <div class="responsibility-number">${index + 1}</div>
+                    <div style="color: #e0e0e0; line-height: 1.6; font-size: 1rem;">${resp}</div>
+                `;
+                responsibilitiesContainer.appendChild(div);
             });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Function to go back to portfolio
+        function goBackToPortfolio() {
+            document.getElementById('job-details-page').style.display = 'none';
+            document.getElementById('main-page').style.display = 'block';
+            
+            // Scroll to experience section
+            setTimeout(() => {
+                const experienceSection = document.getElementById('experience');
+                if (experienceSection) {
+                    const headerOffset = 80;
+                    const elementPosition = experienceSection.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1004,14 +919,16 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                const headerOffset = 80;
-                const elementPosition = target.offsetTop;
-                const offsetPosition = elementPosition - headerOffset;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -1027,3 +944,4 @@
     </script>
 </body>
 </html>
+                    '
